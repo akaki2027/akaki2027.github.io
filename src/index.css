@@ -8,12 +8,35 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
 
-  --color-accent: #e5751f;
-  --color-accent-soft: #f59e4b;
-  --color-ink: #0b0d10;
+  /* Obsidian gold, ported from the ARK Integrity palette.
+     The neutral ramp is rebuilt on hue 84 with a trace of chroma, so the greys
+     carry a hint of the accent's warmth and the gold never reads as clashing.
+     Overriding Tailwind's own `neutral-*` scale means every existing
+     `bg-neutral-950` / `border-neutral-800` picks this up automatically. */
+  --color-neutral-50: oklch(0.985 0.002 84);
+  --color-neutral-100: oklch(0.968 0.003 84);
+  --color-neutral-200: oklch(0.922 0.004 84);
+  --color-neutral-300: oklch(0.87 0.004 84);
+  --color-neutral-400: oklch(0.708 0.005 84);
+  --color-neutral-500: oklch(0.556 0.005 84);
+  --color-neutral-600: oklch(0.44 0.005 84);
+  --color-neutral-700: oklch(0.37 0.005 84);
+  --color-neutral-800: oklch(0.269 0.005 84); /* ARK --surface2 range */
+  --color-neutral-900: oklch(0.18 0.005 84); /* ARK --surface */
+  --color-neutral-950: oklch(0.14 0.004 84); /* ARK --bg */
+
+  /* Light-mode default. Full ARK gold is oklch(0.78 …), which is too pale to
+     read on white, so the light theme uses a deepened version and `.dark`
+     swaps in the real thing below. */
+  --color-accent: oklch(0.56 0.1 88);
 }
 
 @layer base {
+  /* The ARK gold itself, on the obsidian background it was designed against. */
+  .dark {
+    --color-accent: oklch(0.78 0.085 92);
+  }
+
   html {
     scroll-behavior: smooth;
     /* offset anchor jumps so the sticky nav doesn't cover section headings */

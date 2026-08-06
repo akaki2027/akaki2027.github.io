@@ -1,14 +1,21 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, ArrowUpRight, Mail } from 'lucide-react'
-import { Github, Linkedin } from './BrandIcons'
+import { Github, Instagram, Linkedin } from './BrandIcons'
 import Typewriter from './Typewriter'
 import { links, site, typewriterPhrases } from '../data/site'
 
+// Instagram is dropped unless a handle is set in site.js, so an unset one
+// never renders a link that goes nowhere.
 const social = [
   { href: links.github, icon: Github, label: 'GitHub' },
   { href: links.linkedin, icon: Linkedin, label: 'LinkedIn' },
+  links.instagram && {
+    href: `https://instagram.com/${links.instagram}`,
+    icon: Instagram,
+    label: 'Instagram',
+  },
   { href: `mailto:${links.email}`, icon: Mail, label: 'Email' },
-]
+].filter(Boolean)
 
 export default function Hero() {
   return (
@@ -20,13 +27,16 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-6 flex items-center gap-2.5 font-mono text-sm text-neutral-500 dark:text-neutral-400"
+          className="mb-6 flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-sm text-neutral-500 dark:text-neutral-400"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+          <span className="inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+          <span>
+            Current location: <span className="text-neutral-700 dark:text-neutral-300">{site.location}</span>
           </span>
-          {site.location} · open to Summer 2026 internships
+          <span className="text-neutral-300 dark:text-neutral-700">·</span>
+          <span>
+            Hometown: <span className="text-neutral-700 dark:text-neutral-300">{site.hometown}</span>
+          </span>
         </motion.p>
 
         <motion.h1

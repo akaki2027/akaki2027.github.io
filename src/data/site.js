@@ -9,6 +9,7 @@ export const site = {
   name: 'Aditya Kaki',
   initials: 'AK',
   location: 'Blacksburg, VA',
+  hometown: 'Grafton, MA',
   resume: 'AdityaKaki-Resume.pdf', // lives in /public
 }
 
@@ -27,6 +28,9 @@ export const links = {
   email: 'akaki2027@vt.edu',
   linkedin: 'https://linkedin.com/in/adityarkaki',
   github: `https://github.com/${GITHUB_USERNAME}`,
+  // TODO(aditya): set this to your Instagram handle without the @, e.g. 'adityakaki'.
+  // Left null so the icon stays hidden rather than linking somewhere wrong.
+  instagram: null,
 }
 
 // The `{ }` block rendered in the About section. Keys are shown verbatim.

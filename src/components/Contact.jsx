@@ -1,5 +1,5 @@
 import { ArrowUpRight, Mail } from 'lucide-react'
-import { Github, Linkedin } from './BrandIcons'
+import { Github, Instagram, Linkedin } from './BrandIcons'
 import Reveal from './Reveal'
 import { links, site } from '../data/site'
 
@@ -7,7 +7,13 @@ const channels = [
   { label: 'Email', value: links.email, href: `mailto:${links.email}`, icon: Mail },
   { label: 'LinkedIn', value: '/in/adityarkaki', href: links.linkedin, icon: Linkedin },
   { label: 'GitHub', value: links.github.replace('https://github.com/', '@'), href: links.github, icon: Github },
-]
+  links.instagram && {
+    label: 'Instagram',
+    value: `@${links.instagram}`,
+    href: `https://instagram.com/${links.instagram}`,
+    icon: Instagram,
+  },
+].filter(Boolean)
 
 export default function Contact() {
   return (
@@ -23,7 +29,13 @@ export default function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+          {/* Adding Instagram takes this to four cards, which would otherwise
+              leave a 3+1 orphan row on desktop. */}
+          <div
+            className={`mt-12 grid gap-4 ${
+              channels.length === 4 ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-3'
+            }`}
+          >
             {channels.map(({ label, value, href, icon: Icon }) => (
               <a
                 key={label}
