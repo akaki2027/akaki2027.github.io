@@ -1,0 +1,16 @@
+import { site } from '../data/site'
+
+export default function Footer() {
+  return (
+    <footer className="border-t border-neutral-200 py-10 dark:border-neutral-800">
+      <div className="shell flex flex-col items-center justify-between gap-4 sm:flex-row">
+        <p className="font-mono text-sm text-neutral-400">
+          © {new Date().getFullYear()} {site.name}
+        </p>
+        <p className="font-mono text-sm text-neutral-400">
+          Built with React &amp; Tailwind · hosted on GitHub Pages
+        </p>
+      </div>
+    </footer>
+  )
+}

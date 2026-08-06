@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* Tailwind v4 keys `dark:` off the OS preference by default. Point it at the
+   `.dark` class instead so the header toggle actually controls it. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+
+  --color-accent: #e5751f;
+  --color-accent-soft: #f59e4b;
+  --color-ink: #0b0d10;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* offset anchor jumps so the sticky nav doesn't cover section headings */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-white text-neutral-900 antialiased;
+    @apply dark:bg-neutral-950 dark:text-neutral-100;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    @apply bg-accent/25;
+  }
+}
+
+@layer utilities {
+  /* Shared max-width + gutters. Every section uses this so edges line up. */
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
+  }
+
+  .section-label {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-accent;
+  }
+
+  /* Subtle grid backdrop behind the hero. */
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgb(0 0 0 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(0 0 0 / 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 55% at 50% 35%, #000 40%, transparent 100%);
+  }
+
+  .dark .grid-bg {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+  }
+}
+
+/* Respect users who ask for less motion — kills the marquee and reveal animations. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none !important; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 38s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}

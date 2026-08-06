@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Aditya Kaki — Computer Engineer</title>
+    <meta
+      name="description"
+      content="Computer engineering student at Virginia Tech working on embedded systems, machine learning, and cryptographic video integrity."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Open Graph / link previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Aditya Kaki — Computer Engineer" />
+    <meta
+      property="og:description"
+      content="Embedded systems, machine learning, and cryptographic video integrity."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Apply the saved theme before first paint, otherwise dark-mode users get
+         a white flash while React boots. -->
+    <script>
+      (function () {
+        var saved = localStorage.getItem('theme')
+        var dark = saved
+          ? saved === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (dark) document.documentElement.classList.add('dark')
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
