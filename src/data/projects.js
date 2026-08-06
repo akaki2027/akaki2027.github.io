@@ -46,7 +46,8 @@ export const projects = [
     title: 'Pathogen Classification from Blood Transcriptomics',
     blurb:
       "Tells bacterial infection, viral infection, and healthy apart from whole-blood gene expression, across 14 public GEO cohorts and 1,700+ patient samples. The classifier isn't the hard part. Every cohort comes from a different lab with its own batch effects, so the whole pipeline validates leave-one-dataset-out: train on 13 studies, test on the one it has never seen. Four model families run head to head over the same folds, reaching AUROC above 0.94 in the strongest cohorts.",
-    // image: 'pathogen-classification.png',
+    // Table 5 from the report: per-cohort LODO results across all 13 datasets.
+    image: 'pathogen-classification.png',
     tags: ['AI / ML'],
     tech: ['PyTorch', 'XGBoost', 'scikit-learn', 'pandas', 'R'],
     repo: 'https://github.com/akaki2027/Pathogen-Classification',
