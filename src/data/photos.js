@@ -14,8 +14,10 @@
 // The caption is the small label printed under the photo, so keep it to
 // roughly 2 to 5 words. The order here is the order they're laid out in.
 //
-// Square or portrait images look best (they're cropped square, so keep the
-// subject centered). ~800px on the long edge is plenty, under ~400 KB each.
+// Photos are cropped to 4:5 from the centre. If one crops badly, add a `focus`
+// to shift the framing, e.g. `focus: 'center 25%'` to favour the top:
+//
+//   { file: 'gym.JPG', caption: 'Sibling lifts!', focus: 'center 30%' },
 //
 // Nine fills the space nicely, which is what the reference site uses. Fewer is
 // fine. More just extends the wall downward.
@@ -26,13 +28,13 @@
 export const photos = [
   // Uncomment and edit as you add real files, or write your own lines:
   //
-  // { file: 'lab.jpg',       caption: 'In the lab at VT' },
-  // { file: 'ark-bench.jpg', caption: 'ARK bench setup' },
-  // { file: 'friends.jpg',   caption: 'Me and the roommates' },
-  // { file: 'hokies.jpg',    caption: 'Game day in Blacksburg' },
-  // { file: 'family.jpg',    caption: 'My family' },
-  // { file: 'hometown.jpg',  caption: 'Back home in Grafton' },
-  // { file: 'soldering.jpg', caption: 'First PCB that worked' },
+   { file: 'AKinLA.jpeg',       caption: 'Me in LA this past Summer!' },
+   { file: 'AKandFam.JPG', caption: 'Me and the Family!' },
+   { file: 'AKinGym.JPG',   caption: 'Sibling lifts!' },
+   { file: 'CodeFest.JPG',    caption: 'Code Fest!' },
+   { file: 'PersonalSmartLocker.JPG',    caption: 'Personal Smart Locker Project Circuit' },
+   { file: 'Studying.JPG',  caption: 'Long Nights...' },
+   { file: 'MegandAK.JPG', caption: 'Me and my Sister' },
   // { file: 'titan.jpg',     caption: 'Summer at TITAN America' },
   // { file: 'travel.jpg',    caption: 'Somewhere not Virginia' },
 ]

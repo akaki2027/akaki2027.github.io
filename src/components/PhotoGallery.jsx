@@ -125,7 +125,11 @@ function Polaroid({ photo, index, constraintsRef, draggable, onOpen }) {
         alt={photo.caption}
         loading="lazy"
         draggable={false}
-        className="aspect-square w-full rounded-sm bg-neutral-200 object-cover select-none"
+        // 4:5 rather than square: most phone photos are 9:16, and a square crop
+        // eats roughly a third of the frame off the top and bottom, which is
+        // where heads usually are. Per-photo framing can be set with `focus`.
+        style={{ objectPosition: photo.focus ?? 'center' }}
+        className="aspect-[4/5] w-full rounded-sm bg-neutral-200 object-cover select-none"
       />
       <figcaption className="px-0.5 py-2 text-center font-mono text-[11px] leading-tight text-neutral-600">
         {photo.caption}
