@@ -15,10 +15,10 @@
 // {
 //   slug: 'ark-integrity',                 // unique, lowercase, no spaces
 //   title: 'ARK Integrity Systems',
-//   badge: 'In progress',                  // optional — small pill on the image
+//   badge: 'In progress',                  // optional — pill shown next to the title
 //   blurb: 'One or two sentences. What it does and why it is hard.',
 //   image: 'ark-integrity.png',            // optional
-//   tags: ['Embedded Systems', 'Security'],// drives the filter buttons
+//   tags: ['Embedded Systems', 'Security'],// MUST come from `categories` in site.js
 //   tech: ['C++', 'Jetson', 'TPM 2.0'],    // small chips under the blurb
 //   repo: 'https://github.com/you/ark',    // optional
 //   demo: 'https://...',                   // optional
@@ -33,7 +33,7 @@ export const projects = [
     blurb:
       "Tells bacterial infection, viral infection, and healthy apart from whole-blood gene expression, across 14 public GEO cohorts and 1,700+ patient samples. The classifier isn't the hard part — every cohort comes from a different lab with its own batch effects, so the whole pipeline validates leave-one-dataset-out: train on 13 studies, test on the one it has never seen. Four model families run head to head over the same folds, reaching AUROC above 0.94 in the strongest cohorts.",
     // image: 'pathogen-classification.png',  // add once you send the screenshot
-    tags: ['Machine Learning'],
+    tags: ['AI / ML'],
     tech: ['PyTorch', 'XGBoost', 'scikit-learn', 'pandas', 'R'],
     repo: 'https://github.com/akaki2027/ECE4824-Pathogen-Classification',
     featured: true,

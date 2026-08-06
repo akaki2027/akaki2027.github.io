@@ -44,10 +44,23 @@ export const aboutParagraphs = [
 // Shown as big numbers in the About section.
 export const stats = [
   { value: '2027', label: 'Expected grad' },
-  { value: '1', label: 'Company founded' },
   // TODO(aditya): update these two once you know the real numbers.
   { value: '10+', label: 'Projects built' },
   { value: '5+', label: 'Languages' },
+]
+
+// The filter buttons above the project grid, in the order they appear.
+// A project's `tags` must come from this list — anything else won't get a button.
+// Categories with no projects in them are hidden automatically, so you can add
+// future ones here now and they'll appear the moment a project uses them.
+export const categories = [
+  'AI / ML',
+  'Embedded Systems',
+  'Computer Vision',
+  'Hardware',
+  'Security',
+  'Web Dev',
+  'Hackathon',
 ]
 
 // Grouped for the tech section. Add or remove freely.
@@ -56,31 +69,4 @@ export const techStack = [
   { group: 'ML & Data', items: ['PyTorch', 'scikit-learn', 'XGBoost', 'pandas', 'NumPy', 'TensorRT', 'Tesseract OCR'] },
   { group: 'Systems', items: ['Linux', 'Git', 'MATLAB', 'Quartus', 'Docker', 'CUDA'] },
   { group: 'Hardware', items: ['Jetson Orin Nano', 'TPM 2.0', 'Raspberry Pi CM4', 'Arduino', 'DE-10 Lite FPGA', 'PCB Prototyping', 'NFC/RFID'] },
-]
-
-// Optional. Delete the array contents to hide the experience section entirely.
-export const experience = [
-  {
-    role: 'Founder & Technical Lead',
-    org: 'ARK Integrity Systems',
-    location: 'Blacksburg, VA',
-    period: 'Mar 2026 — Present',
-    points: [
-      'Building a video integrity platform that signs CCTV footage at capture using TPM 2.0 hardware key storage and ECDSA P-256, producing forensic records that survive courtroom scrutiny.',
-      'Designing an embedded bridge that retrofits existing IP camera systems with on-premise signing at the edge — no need to rip out deployed hardware.',
-      'Writing embedded Linux firmware for a Jetson Orin Nano: RTSP interception, Merkle tree frame hashing, TPM-backed signing, plus a hardware NVDEC decode path feeding CUDA/TensorRT YOLOv8 inference.',
-      'Shipped an open-source verifier that re-derives Merkle roots and validates ECDSA signatures and RFC 3161 timestamps, so anyone can independently confirm footage is authentic.',
-    ],
-  },
-  {
-    role: 'Digitalization Intern',
-    org: 'TITAN America — Corporate Engineering',
-    location: 'Troutville, VA',
-    period: 'May 2025 — Aug 2025',
-    points: [
-      'Built Python automation that generated a 5,000+ folder engineering asset directory from Excel source data, standardizing enterprise digital records.',
-      'Developed an OCR document classification pipeline with Tesseract to process, orient, and route hundreds of technical documents to the right asset locations.',
-      'Laid the digital infrastructure that corporate engineering and maintenance planning now build their internal AI workflows on.',
-    ],
-  },
 ]

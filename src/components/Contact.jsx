@@ -14,7 +14,7 @@ export default function Contact() {
     <section id="contact" className="shell py-24 sm:py-32">
       <div className="rounded-3xl border border-neutral-200 bg-neutral-50 px-8 py-16 sm:px-14 dark:border-neutral-800 dark:bg-neutral-900/40">
         <Reveal>
-          <p className="section-label">04 — Contact</p>
+          <p className="section-label">03 — Contact</p>
           <h2 className="mt-4 max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">Let's build something.</h2>
           <p className="mt-4 max-w-lg text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
             I'm looking for Summer 2026 internships in embedded systems, machine learning, or security — and I'm

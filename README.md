@@ -48,9 +48,14 @@ project.
 
 ## Editing everything else
 
-**`src/data/site.js`** holds the headline, bio, stats, tech stack, experience, and
-links. The components read from it — you shouldn't need to touch `src/components/`
-for normal content changes.
+**`src/data/site.js`** holds the headline, bio, stats, tech stack, filter
+categories, and links. The components read from it — you shouldn't need to touch
+`src/components/` for normal content changes.
+
+`categories` in that file defines the filter buttons above the project grid, in
+order. A project's `tags` must match entries in that list exactly, or they won't
+get a button. Categories nobody uses yet stay hidden, so it's safe to list future
+ones now.
 
 Two things in there are marked `TODO` and need your input:
 
