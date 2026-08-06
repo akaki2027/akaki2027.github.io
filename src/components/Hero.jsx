@@ -1,21 +1,14 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, ArrowUpRight, Mail } from 'lucide-react'
-import { Github, Instagram, Linkedin } from './BrandIcons'
+import { Github, Linkedin } from './BrandIcons'
 import Typewriter from './Typewriter'
 import { links, site, typewriterPhrases } from '../data/site'
 
-// Instagram is dropped unless a handle is set in site.js, so an unset one
-// never renders a link that goes nowhere.
 const social = [
   { href: links.github, icon: Github, label: 'GitHub' },
   { href: links.linkedin, icon: Linkedin, label: 'LinkedIn' },
-  links.instagram && {
-    href: `https://instagram.com/${links.instagram}`,
-    icon: Instagram,
-    label: 'Instagram',
-  },
   { href: `mailto:${links.email}`, icon: Mail, label: 'Email' },
-].filter(Boolean)
+]
 
 export default function Hero() {
   return (

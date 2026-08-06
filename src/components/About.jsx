@@ -1,4 +1,5 @@
 import Reveal from './Reveal'
+import PhotoGallery from './PhotoGallery'
 import { aboutObject, aboutParagraphs, stats, techStack } from '../data/site'
 
 export default function About() {
@@ -80,6 +81,8 @@ export default function About() {
           </div>
         </Reveal>
       </div>
+
+      <PhotoGallery />
     </section>
   )
 }
