@@ -39,7 +39,6 @@ export const projects = [
     repo: 'https://github.com/akaki2027/Personal-Smart-Locker',
     demo: 'https://youtube.com/shorts/-GK4X4ShGR0',
     demoLabel: 'Demo video',
-    featured: true,
   },
   {
     slug: 'pathogen-classification',
@@ -51,6 +50,16 @@ export const projects = [
     tags: ['AI / ML'],
     tech: ['PyTorch', 'XGBoost', 'scikit-learn', 'pandas', 'R'],
     repo: 'https://github.com/akaki2027/Pathogen-Classification',
+  },
+  {
+    slug: 'color-jump',
+    title: 'Color Jump',
+    badge: 'Course project',
+    blurb:
+      "An FSM-driven arcade game on an MSP432 LaunchPad, where the player jumps along a scrolling floor and has to match its colour or fall through it. The interesting problem is redrawing: the OLED sits behind SPI, so repainting the whole frame makes the animation crawl. Instead each jump records the player's previous rectangle and only that region plus the new position gets redrawn, which keeps the motion smooth. A joystick-driven colour wheel swaps the player between four colours, and two difficulty levels change both the scoring rate and the floor's scroll speed.",
+    image: 'color-jump.jpg',
+    tags: ['Embedded Systems'],
+    tech: ['C', 'MSP432', 'SPI', 'FSM', 'Joystick'],
   },
   {
     slug: 'readability-analyzer',

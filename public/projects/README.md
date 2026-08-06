@@ -39,11 +39,23 @@ centered so it survives both crops.
 Match the project's `slug` so the pairing is obvious. The exact filenames the
 site is currently looking for:
 
-| Project | Drop in this file | Status |
+| Project | File | Status |
 |---|---|---|
-| Personal Smart Locker | `personal-smart-locker.png` | done, using the repo's block diagram |
-| Pathogen Classification | `pathogen-classification.png` | needed |
-| Readability Analyzer | `readability-analyzer.png` | needed |
+| Personal Smart Locker | `personal-smart-locker.png` | done, block diagram from its own repo |
+| Pathogen Classification | `pathogen-classification.png` | done, Table 5 from the report |
+| Color Jump | `color-jump.jpg` | done, game screen photo from the report |
+| Readability Analyzer | `readability-analyzer.png` | **needed** |
+
+For the Readability Analyzer, run your own build and screenshot it:
+
+```bash
+./build/guimain
+```
+
+Open something from `text/` (holmes.txt is a good one) and tick the
+part-of-speech colorized view before taking the shot, since that's the
+visually distinctive part. Don't use the screenshots from the ECE3574 course
+handout: those are the instructor's reference implementation, not your build.
 
 Adding the file is not enough on its own: also uncomment the `image:` line for
 that project in `src/data/projects.js`.
