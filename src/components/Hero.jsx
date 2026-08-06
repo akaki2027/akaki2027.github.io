@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, ArrowUpRight, Mail } from 'lucide-react'
 import { Github, Linkedin } from './BrandIcons'
-import { links, site } from '../data/site'
+import Typewriter from './Typewriter'
+import { links, site, typewriterPhrases } from '../data/site'
 
 const social = [
   { href: links.github, icon: Github, label: 'GitHub' },
@@ -32,18 +33,20 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.08 }}
-          className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+          className="text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
         >
-          {site.headline} <span className="text-accent">{site.headlineAccent}</span>
+          {site.name}
         </motion.h1>
 
+        {/* Fixed min-height so the line below never reflows as the phrase length
+            changes while typing. */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.16 }}
-          className="mt-7 max-w-2xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400"
+          className="mt-5 min-h-[1.6em] text-2xl font-medium tracking-tight text-neutral-600 sm:text-3xl dark:text-neutral-400"
         >
-          {site.blurb}
+          I am <Typewriter phrases={typewriterPhrases} className="text-accent" />
         </motion.p>
 
         <motion.div
@@ -56,7 +59,7 @@ export default function Hero() {
             href="#projects"
             className="group inline-flex items-center gap-2 rounded-full bg-neutral-950 px-6 py-3 text-sm font-medium text-white transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-neutral-950"
           >
-            See my work
+            View projects
             <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
           <a

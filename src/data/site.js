@@ -5,18 +5,23 @@
 export const GITHUB_USERNAME = 'akaki2027'
 
 export const site = {
+  // Your name is the headline on the landing screen. Nothing else competes with it.
   name: 'Aditya Kaki',
   initials: 'AK',
-  // The big line on the landing screen. Keep it short — it's set very large.
-  // `headlineAccent` renders in orange, right after `headline`.
-  headline: 'I build systems',
-  headlineAccent: 'you can trust.',
-  // One or two sentences under the headline.
-  blurb:
-    'Computer engineering student at Virginia Tech working where embedded hardware meets machine learning — cryptographic video integrity, edge inference, and the unglamorous plumbing that makes both hold up under scrutiny.',
   location: 'Blacksburg, VA',
   resume: 'AdityaKaki-Resume.pdf', // lives in /public
 }
+
+// The line under your name types itself out, holds, deletes, and moves to the
+// next one, looping forever. Add or reorder freely. Each entry is everything
+// that comes after the fixed "I am " prefix, so start them with "an" or "a".
+export const typewriterPhrases = [
+  'an Engineer.',
+  'an ML Engineer.',
+  'an AI enthusiast.',
+  'an embedded systems nerd.',
+  'a Hokie.',
+]
 
 export const links = {
   email: 'akaki2027@vt.edu',
@@ -36,7 +41,7 @@ export const aboutObject = {
 }
 
 export const aboutParagraphs = [
-  "I'm a computer engineering student at Virginia Tech, concentrating in machine learning and spending most of my time a layer or two below where people usually look — firmware, hardware key storage, inference on devices that have no business running a neural network.",
+  "I'm a computer engineering student at Virginia Tech, concentrating in machine learning and spending most of my time a layer or two below where people usually look: firmware, hardware key storage, inference on devices that have no business running a neural network.",
   "Right now I'm building ARK Integrity Systems, a platform that cryptographically signs CCTV footage the instant it's captured, so it can't be quietly edited later and still pass as real. It's a hardware problem, a cryptography problem, and a talking-to-attorneys problem all at once, which is roughly why it's interesting.",
   "Before that I spent a summer at TITAN America turning a pile of Excel sheets and scanned engineering documents into digital infrastructure their corporate engineering team still runs on. Less glamorous, same lesson: most of the value is in the parts nobody wants to do carefully.",
 ]
@@ -44,13 +49,12 @@ export const aboutParagraphs = [
 // Shown as big numbers in the About section.
 export const stats = [
   { value: '2027', label: 'Expected grad' },
-  // TODO(aditya): update these two once you know the real numbers.
   { value: '10+', label: 'Projects built' },
-  { value: '5+', label: 'Languages' },
+  { value: '3+', label: 'Languages known' },
 ]
 
 // The filter buttons above the project grid, in the order they appear.
-// A project's `tags` must come from this list — anything else won't get a button.
+// A project's `tags` must come from this list, or it won't get a button.
 // Categories with no projects in them are hidden automatically, so you can add
 // future ones here now and they'll appear the moment a project uses them.
 export const categories = [

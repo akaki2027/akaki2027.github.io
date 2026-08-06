@@ -133,7 +133,7 @@ export default function Projects() {
   const [expanded, setExpanded] = useState(false)
 
   // Buttons follow the order defined in site.js, but a category only earns one
-  // once a project actually uses it — no dead filters that return nothing.
+  // once a project actually uses it, so there are no dead filters.
   const activeCategories = useMemo(() => {
     const used = new Set(projects.flatMap((p) => p.tags ?? []))
     return [ALL, ...categories.filter((c) => used.has(c))]
@@ -154,7 +154,7 @@ export default function Projects() {
   return (
     <section id="projects" className="shell py-24 sm:py-32">
       <Reveal>
-        <p className="section-label">02 — Projects</p>
+        <p className="section-label">02 / Projects</p>
         <div className="mt-4 flex flex-wrap items-end justify-between gap-4">
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Things I've built.</h2>
           {projects.length > 0 && (
@@ -194,7 +194,7 @@ export default function Projects() {
 
           {/* Deliberately no AnimatePresence exit animation here. An exit would make
               a card's removal wait on an animation finishing, and rAF is throttled
-              to zero in background tabs — filtered-out cards would linger. Cards
+              to zero in background tabs, so filtered-out cards would linger. Cards
               animate in and reflow via `layout`; removal is immediate. */}
           <motion.div layout className="mt-10 grid gap-6 md:grid-cols-2">
             {visible.map((p) => (

@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section id="about" className="shell py-24 sm:py-32">
       <Reveal>
-        <p className="section-label">01 — About</p>
+        <p className="section-label">01 / About</p>
         <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
           A little more than the résumé says.
         </h2>
