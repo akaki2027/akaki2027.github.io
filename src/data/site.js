@@ -2,8 +2,7 @@
 // Everything about you, in one place. Edit this file, not the components.
 // ---------------------------------------------------------------------------
 
-// TODO(aditya): replace with your real GitHub username once your repos are up.
-export const GITHUB_USERNAME = 'your-github-username'
+export const GITHUB_USERNAME = 'akaki2027'
 
 export const site = {
   name: 'Aditya Kaki',
