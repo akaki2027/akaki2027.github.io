@@ -29,7 +29,7 @@ function Monogram({ title }) {
 }
 
 function ProjectCard({ project }) {
-  const { title, badge, blurb, image, tech = [], repo, demo, featured } = project
+  const { title, badge, blurb, image, tech = [], repo, demo, demoLabel, featured } = project
 
   return (
     <motion.article
@@ -96,7 +96,7 @@ function ProjectCard({ project }) {
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm text-neutral-600 transition-colors hover:text-accent dark:text-neutral-400"
               >
-                <ArrowUpRight size={15} /> Live
+                <ArrowUpRight size={15} /> {demoLabel ?? 'Live'}
               </a>
             )}
           </div>

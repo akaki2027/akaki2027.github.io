@@ -36,8 +36,17 @@ centered so it survives both crops.
 
 ## Naming
 
-Match the project's `slug` so the pairing is obvious: a project with
-`slug: 'ark-integrity'` gets `ark-integrity.png`.
+Match the project's `slug` so the pairing is obvious. The exact filenames the
+site is currently looking for:
+
+| Project | Drop in this file | Status |
+|---|---|---|
+| Personal Smart Locker | `personal-smart-locker.png` | done, using the repo's block diagram |
+| Pathogen Classification | `pathogen-classification.png` | needed |
+| Readability Analyzer | `readability-analyzer.png` | needed |
+
+Adding the file is not enough on its own: also uncomment the `image:` line for
+that project in `src/data/projects.js`.
 
 Lowercase, hyphens, no spaces. GitHub Pages is case-sensitive even though your
 Mac is not, so `ARK-Integrity.PNG` will 404 in production while working fine

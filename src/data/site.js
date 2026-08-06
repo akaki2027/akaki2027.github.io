@@ -64,6 +64,7 @@ export const categories = [
   'Computer Vision',
   'Hardware',
   'Security',
+  'Software',
   'Web Dev',
   'Hackathon',
 ]
