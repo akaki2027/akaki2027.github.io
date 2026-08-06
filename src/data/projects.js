@@ -66,7 +66,7 @@ export const projects = [
     title: 'Readability Analyzer',
     blurb:
       'A Qt desktop app that scores how hard a piece of writing is to read, using Flesch Reading Ease, Flesch-Kincaid, and Gunning Fog. All three formulas hang on counting syllables, which English has no reliable rule for, so the syllabizer reduces each word to a vowel/consonant pattern and splits on that, with prefix and suffix lists catching what the pattern misses. Words are looked up against a 74,000-word lexicon to drive a part-of-speech colorized view. Tokenizing runs on a thread pool and files load off the UI thread, so a multi-megabyte document never freezes the window.',
-    // image: 'readability-analyzer.png',
+    image: 'readability-analyzer.png',
     tags: ['Software'],
     tech: ['C++17', 'Qt 6', 'CMake', 'Multithreading', 'Catch2'],
     repo: 'https://github.com/akaki2027/Readability-Analyzer',

@@ -44,7 +44,7 @@ site is currently looking for:
 | Personal Smart Locker | `personal-smart-locker.png` | done, block diagram from its own repo |
 | Pathogen Classification | `pathogen-classification.png` | done, Table 5 from the report |
 | Color Jump | `color-jump.jpg` | done, game screen photo from the report |
-| Readability Analyzer | `readability-analyzer.png` | **needed** |
+| Readability Analyzer | `readability-analyzer.png` | done, your own build |
 
 For the Readability Analyzer, run your own build and screenshot it:
 
