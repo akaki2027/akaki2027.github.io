@@ -35,6 +35,7 @@ export const photos = [
    { file: 'PersonalSmartLocker.JPG',    caption: 'Personal Smart Locker Project Circuit' },
    { file: 'Studying.JPG',  caption: 'Long Nights...' },
    { file: 'MegandAK.JPG', caption: 'Me and my Sister' },
+   { file: 'crows-nest-prototype.jpg', caption: "ARK Crow's Nest prototype" },
   // { file: 'titan.jpg',     caption: 'Summer at TITAN America' },
   // { file: 'travel.jpg',    caption: 'Somewhere not Virginia' },
 ]

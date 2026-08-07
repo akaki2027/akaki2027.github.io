@@ -17,8 +17,8 @@ export default function Contact() {
           <p className="section-label">03 / Contact</p>
           <h2 className="mt-4 max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">Let's build something.</h2>
           <p className="mt-4 max-w-lg text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
-            I'm looking for Summer 2026 internships in embedded systems, machine learning, or security, and I'm
-            always up for talking about a hard problem, job or not.
+            I'm looking for new-grad roles starting 2027 in embedded systems, machine learning, or security, and
+            I'm always up for talking about a hard problem, job or not.
           </p>
         </Reveal>
 
