@@ -19,6 +19,7 @@
 //   blurb: 'One or two sentences. What it does and why it is hard.',
 //   image: 'ark-integrity.png',            // optional
 //   tags: ['Embedded Systems', 'Security'],// MUST come from `categories` in site.js
+//   metric: { value: '2.33 mA', label: 'sleep current' },  // optional, real measured values only
 //   tech: ['C++', 'Jetson', 'TPM 2.0'],    // small chips under the blurb
 //   repo: 'https://github.com/you/ark',    // optional
 //   demo: 'https://...',                   // optional
@@ -29,6 +30,7 @@
 export const projects = [
   {
     slug: 'personal-smart-locker',
+    metric: { value: '2.33 mA', label: 'sleep current' },
     title: 'Personal Smart Locker',
     badge: 'Bare metal',
     blurb:
@@ -42,6 +44,7 @@ export const projects = [
   },
   {
     slug: 'pathogen-classification',
+    metric: { value: '0.949', label: 'mean AUROC, healthy' },
     title: 'Pathogen Classification from Blood Transcriptomics',
     blurb:
       "Tells bacterial infection, viral infection, and healthy apart from whole-blood gene expression, across 14 public GEO cohorts and 1,700+ patient samples. The classifier isn't the hard part. Every cohort comes from a different lab with its own batch effects, so the whole pipeline validates leave-one-dataset-out: train on 13 studies, test on the one it has never seen. Four model families run head to head over the same folds, reaching AUROC above 0.94 in the strongest cohorts.",
@@ -63,6 +66,7 @@ export const projects = [
   },
   {
     slug: 'readability-analyzer',
+    metric: { value: '74,000', label: 'word lexicon' },
     title: 'Readability Analyzer',
     blurb:
       'A Qt desktop app that scores how hard a piece of writing is to read, using Flesch Reading Ease, Flesch-Kincaid, and Gunning Fog. All three formulas hang on counting syllables, which English has no reliable rule for, so the syllabizer reduces each word to a vowel/consonant pattern and splits on that, with prefix and suffix lists catching what the pattern misses. Words are looked up against a 74,000-word lexicon to drive a part-of-speech colorized view. Tokenizing runs on a thread pool and files load off the UI thread, so a multi-megabyte document never freezes the window.',

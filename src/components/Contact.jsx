@@ -1,6 +1,6 @@
 import { ArrowUpRight, Mail } from 'lucide-react'
 import { Github, Linkedin } from './BrandIcons'
-import Reveal from './Reveal'
+import SectionHead from './SectionHead'
 import { links, site } from '../data/site'
 
 const channels = [
@@ -12,51 +12,51 @@ const channels = [
 export default function Contact() {
   return (
     <section id="contact" className="shell py-24 sm:py-32">
-      <div className="rounded-3xl border border-neutral-200 bg-neutral-50 px-8 py-16 sm:px-14 dark:border-neutral-800 dark:bg-neutral-900/40">
-        <Reveal>
-          <p className="section-label">03 / Contact</p>
-          <h2 className="mt-4 max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">Let's build something.</h2>
-          <p className="mt-4 max-w-lg text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
-            I'm looking for new-grad roles starting 2027 in embedded systems, machine learning, or security, and
-            I'm always up for talking about a hard problem, job or not.
-          </p>
-        </Reveal>
+      <SectionHead title="Let's build something." />
 
-        <Reveal delay={0.1}>
-          <div className="mt-12 grid gap-4 sm:grid-cols-3">
-            {channels.map(({ label, value, href, icon: Icon }) => (
+      <div className="mt-10 grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <p className="max-w-[60ch] text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+          I'm looking for new-grad roles starting 2027 in embedded systems, machine learning, or
+          security, and I'm always up for talking about a hard problem, job or not.
+        </p>
+
+        {/* Rows on a rule, not cards. The old version nested cards inside a
+            card, which reads as packaging around packaging. */}
+        <ul className="divide-y divide-neutral-200 border-y border-neutral-200 dark:divide-neutral-800 dark:border-neutral-800">
+          {channels.map(({ label, value, href, icon: Icon }) => (
+            <li key={label}>
               <a
-                key={label}
                 href={href}
                 target={href.startsWith('mailto:') ? undefined : '_blank'}
                 rel="noreferrer"
-                className="group rounded-2xl border border-neutral-200 bg-white p-5 transition-colors hover:border-accent dark:border-neutral-800 dark:bg-neutral-950/40"
+                className="group flex items-center gap-4 py-5 transition-colors hover:text-accent"
               >
-                <div className="flex items-center justify-between">
-                  <Icon size={18} className="text-neutral-400 transition-colors group-hover:text-accent" />
-                  <ArrowUpRight
-                    size={15}
-                    className="text-neutral-300 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent dark:text-neutral-700"
-                  />
-                </div>
-                <p className="mt-4 text-sm text-neutral-500">{label}</p>
-                <p className="mt-0.5 truncate font-medium">{value}</p>
+                <Icon
+                  size={17}
+                  className="shrink-0 text-neutral-400 transition-colors group-hover:text-accent"
+                />
+                <span className="w-24 shrink-0 font-mono text-[11px] tracking-wide text-neutral-500 uppercase">
+                  {label}
+                </span>
+                <span className="min-w-0 flex-1 truncate text-[15px]">{value}</span>
+                <ArrowUpRight
+                  size={15}
+                  className="shrink-0 text-neutral-300 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 dark:text-neutral-700"
+                />
               </a>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.18}>
-          <a
-            href={`${import.meta.env.BASE_URL}${site.resume}`}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-neutral-950 px-6 py-3 text-sm font-medium text-white transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-neutral-950"
-          >
-            Download résumé <ArrowUpRight size={16} />
-          </a>
-        </Reveal>
+            </li>
+          ))}
+        </ul>
       </div>
+
+      <a
+        href={`${import.meta.env.BASE_URL}${site.resume}`}
+        target="_blank"
+        rel="noreferrer"
+        className="mt-12 inline-flex items-center gap-2 rounded-full bg-neutral-950 px-6 py-3 text-sm font-medium text-white transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-neutral-950"
+      >
+        Download résumé <ArrowUpRight size={16} />
+      </a>
     </section>
   )
 }

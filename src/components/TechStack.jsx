@@ -11,12 +11,12 @@ export default function TechStack() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent dark:from-neutral-950" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent dark:from-neutral-950" />
 
-        <ul className="marquee-track flex w-max items-center gap-3" aria-label="Technologies I work with">
+        <ul className="marquee-track flex w-max items-center gap-10" aria-label="Technologies I work with">
           {[...all, ...all].map((item, i) => (
             <li
               key={`${item}-${i}`}
               aria-hidden={i >= all.length}
-              className="whitespace-nowrap rounded-full border border-neutral-200 px-4 py-2 font-mono text-sm text-neutral-600 dark:border-neutral-800 dark:text-neutral-400"
+              className="whitespace-nowrap font-mono text-xs tracking-wide text-neutral-500 uppercase"
             >
               {item}
             </li>

@@ -11,6 +11,10 @@ export const site = {
   location: 'Blacksburg, VA',
   hometown: 'Grafton, MA',
   resume: 'AdityaKaki-Resume.pdf', // lives in /public
+  // The claim the hero makes. States the intersection rather than listing two
+  // separate skills, per the positioning recorded in PRODUCT.md.
+  positioning:
+    'I put machine learning and cryptography onto hardware that has no business running either: inference at the edge, tamper-evident video at the moment of capture, and the bare-metal firmware underneath both.',
 }
 
 // The line under your name types itself out, holds, deletes, and moves to the
@@ -28,17 +32,6 @@ export const links = {
   email: 'akaki2027@vt.edu',
   linkedin: 'https://linkedin.com/in/adityarkaki',
   github: `https://github.com/${GITHUB_USERNAME}`,
-}
-
-// The `{ }` block rendered in the About section. Keys are shown verbatim.
-export const aboutObject = {
-  location: '"Blacksburg, VA"',
-  school: '"Virginia Tech"',
-  degree: '"B.S. Computer Engineering"',
-  concentration: '"Machine Learning"',
-  graduating: 'May 2027',
-  focus: '["Embedded Systems", "ML", "Security"]',
-  currentlyBuilding: '"ARK Integrity Systems"',
 }
 
 export const aboutParagraphs = [

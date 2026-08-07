@@ -63,7 +63,7 @@ export default function Nav() {
       <nav className="shell flex h-16 items-center justify-between">
         <a
           href="#top"
-          className="font-mono text-lg font-semibold tracking-tight transition-colors hover:text-accent"
+          className="display -my-2 py-2 text-2xl transition-colors hover:text-accent"
           aria-label="Back to top"
         >
           {site.initials}
@@ -94,7 +94,7 @@ export default function Nav() {
           </a>
           <button
             onClick={() => setDark(!dark)}
-            className="ml-1 rounded-full p-2.5 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-950 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white"
+            className="ml-1 rounded-full p-3 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-950 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white"
             aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {dark ? <Sun size={17} /> : <Moon size={17} />}
@@ -104,14 +104,14 @@ export default function Nav() {
         <div className="flex items-center gap-1 md:hidden">
           <button
             onClick={() => setDark(!dark)}
-            className="rounded-full p-2.5 text-neutral-600 dark:text-neutral-400"
+            className="rounded-full p-3 text-neutral-600 dark:text-neutral-400"
             aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {dark ? <Sun size={17} /> : <Moon size={17} />}
           </button>
           <button
             onClick={() => setOpen(!open)}
-            className="rounded-full p-2.5 text-neutral-600 dark:text-neutral-400"
+            className="rounded-full p-3 text-neutral-600 dark:text-neutral-400"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
           >

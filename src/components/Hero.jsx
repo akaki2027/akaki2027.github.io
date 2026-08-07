@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion'
 import { ArrowDown, ArrowUpRight, Mail } from 'lucide-react'
 import { Github, Linkedin } from './BrandIcons'
+import TickRule from './TickRule'
 import Typewriter from './Typewriter'
 import { links, site, typewriterPhrases } from '../data/site'
 
@@ -12,58 +12,62 @@ const social = [
 
 export default function Hero() {
   return (
-    <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-16">
-      <div className="grid-bg pointer-events-none absolute inset-0" aria-hidden="true" />
-
-      <div className="shell relative">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-sm text-neutral-500 dark:text-neutral-400"
+    <section id="top" className="relative flex min-h-screen items-center pt-16">
+      <div className="shell relative w-full">
+        {/* Metadata reads as an instrument label: mono, small, sitting on the
+            scale that anchors the name below it. */}
+        <p
+          className="resolve flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-xs tracking-wide text-neutral-500 uppercase dark:text-neutral-400"
+          style={{ animationDelay: '0.05s' }}
         >
-          <span className="inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-          <span>
-            Current location: <span className="text-neutral-700 dark:text-neutral-300">{site.location}</span>
-          </span>
-          <span className="text-neutral-300 dark:text-neutral-700">·</span>
-          <span>
-            Hometown: <span className="text-neutral-700 dark:text-neutral-300">{site.hometown}</span>
-          </span>
-        </motion.p>
+          <span>{site.location}</span>
+          <span className="text-neutral-300 dark:text-neutral-700">/</span>
+          <span>from {site.hometown}</span>
+          <span className="text-neutral-300 dark:text-neutral-700">/</span>
+          <span>Virginia Tech, 2027</span>
+        </p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.08 }}
-          className="text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+        <div className="resolve mt-3" style={{ animationDelay: '0.12s' }}>
+          <TickRule major className="text-neutral-900 dark:text-neutral-100" />
+        </div>
+
+        <h1
+          className="display resolve mt-8 text-[clamp(3.25rem,11vw,6rem)]"
+          style={{ animationDelay: '0.2s' }}
         >
           {site.name}
-        </motion.h1>
+        </h1>
 
-        {/* Fixed min-height so the line below never reflows as the phrase length
-            changes while typing. */}
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.16 }}
-          className="mt-5 min-h-[1.6em] text-2xl font-medium tracking-tight text-neutral-600 sm:text-3xl dark:text-neutral-400"
+        {/* Mono here is functional, not costume: a proportional face reflows on
+            every keystroke as the phrase types itself. min-h holds the line so
+            the buttons below never shift. */}
+        <p
+          className="resolve mt-6 min-h-[1.7em] font-mono text-xl tracking-tight text-neutral-600 sm:text-2xl dark:text-neutral-400"
+          style={{ animationDelay: '0.3s' }}
         >
           I am <Typewriter phrases={typewriterPhrases} className="text-accent" />
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.24 }}
-          className="mt-10 flex flex-wrap items-center gap-3"
+        <p
+          className="resolve mt-6 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400"
+          style={{ animationDelay: '0.38s' }}
+        >
+          {site.positioning}
+        </p>
+
+        <div
+          className="resolve mt-10 flex flex-wrap items-center gap-3"
+          style={{ animationDelay: '0.46s' }}
         >
           <a
             href="#projects"
             className="group inline-flex items-center gap-2 rounded-full bg-neutral-950 px-6 py-3 text-sm font-medium text-white transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-neutral-950"
           >
             View projects
-            <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight
+              size={16}
+              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
           </a>
           <a
             href={`${import.meta.env.BASE_URL}${site.resume}`}
@@ -88,15 +92,15 @@ export default function Hero() {
               </a>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <a
         href="#about"
         aria-label="Scroll to about"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-neutral-400 transition-colors hover:text-accent"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 p-2.5 text-neutral-400 transition-colors hover:text-accent"
       >
-        <ArrowDown size={20} className="animate-bounce" />
+        <ArrowDown size={20} />
       </a>
     </section>
   )

@@ -4,15 +4,51 @@
    `.dark` class instead so the header toggle actually controls it. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+/* Self-hosted, latin subset only. Referenced relatively so Vite fingerprints
+   them and they keep working if `base` ever changes to a repo subpath. */
+@font-face {
+  font-family: "Newsreader";
+  src: url("./fonts/newsreader-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plex Sans";
+  src: url("./fonts/plex-sans-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plex Sans";
+  src: url("./fonts/plex-sans-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plex Sans";
+  src: url("./fonts/plex-sans-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plex Mono";
+  src: url("./fonts/plex-mono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
 
-  /* Obsidian gold, ported from the ARK Integrity palette.
-     The neutral ramp is rebuilt on hue 84 with a trace of chroma, so the greys
-     carry a hint of the accent's warmth and the gold never reads as clashing.
-     Overriding Tailwind's own `neutral-*` scale means every existing
-     `bg-neutral-950` / `border-neutral-800` picks this up automatically. */
+@theme {
+  /* Display is a serif on purpose. The work is forensic and measured, and a
+     high-contrast serif reads as a record rather than a startup landing page.
+     IBM Plex was drawn as an engineering typeface, which suits the measurement
+     language the rest of the page speaks. */
+  --font-display: "Newsreader", ui-serif, Georgia, serif;
+  --font-sans: "Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Obsidian gold, ported from the ARK Integrity palette. The neutral ramp is
+     rebuilt on hue 84 with a trace of chroma, so the greys carry a hint of the
+     accent's warmth and the gold never reads as clashing. */
   --color-neutral-50: oklch(0.985 0.002 84);
   --color-neutral-100: oklch(0.968 0.003 84);
   --color-neutral-200: oklch(0.922 0.004 84);
@@ -21,69 +57,83 @@
   --color-neutral-500: oklch(0.556 0.005 84);
   --color-neutral-600: oklch(0.44 0.005 84);
   --color-neutral-700: oklch(0.37 0.005 84);
-  --color-neutral-800: oklch(0.269 0.005 84); /* ARK --surface2 range */
-  --color-neutral-900: oklch(0.18 0.005 84); /* ARK --surface */
-  --color-neutral-950: oklch(0.14 0.004 84); /* ARK --bg */
+  --color-neutral-800: oklch(0.269 0.005 84);
+  --color-neutral-900: oklch(0.18 0.005 84);
+  --color-neutral-950: oklch(0.14 0.004 84);
 
-  /* Light-mode default. Full ARK gold is oklch(0.78 …), which is too pale to
-     read on white, so the light theme uses a deepened version and `.dark`
-     swaps in the real thing below. */
+  /* Light-mode default. Full ARK gold is oklch(0.78 …), too pale to read on
+     white, so light uses a deepened version and `.dark` swaps in the real one. */
   --color-accent: oklch(0.56 0.1 88);
 }
 
 @layer base {
-  /* The ARK gold itself, on the obsidian background it was designed against. */
   .dark {
     --color-accent: oklch(0.78 0.085 92);
   }
 
   html {
     scroll-behavior: smooth;
-    /* offset anchor jumps so the sticky nav doesn't cover section headings */
     scroll-padding-top: 5rem;
   }
 
   body {
     @apply bg-white text-neutral-900 antialiased;
     @apply dark:bg-neutral-950 dark:text-neutral-100;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   ::selection {
     @apply bg-accent/25;
   }
+
+  /* Focus is drawn once, here, so every control gets the same ring. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
 }
 
 @layer utilities {
-  /* Shared max-width + gutters. Every section uses this so edges line up. */
+  /* Shared max-width and gutters. Every section uses this so edges line up. */
   .shell {
     @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
   }
 
-  .section-label {
-    @apply font-mono text-xs uppercase tracking-[0.2em] text-accent;
+  /* Display type. Serif wants less negative tracking than a grotesque, and the
+     floor caps display at 6rem. */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
   }
 
-  /* Subtle grid backdrop behind the hero. */
-  .grid-bg {
-    background-image:
-      linear-gradient(to right, rgb(0 0 0 / 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(0 0 0 / 0.05) 1px, transparent 1px);
-    background-size: 56px 56px;
-    mask-image: radial-gradient(ellipse 80% 55% at 50% 35%, #000 40%, transparent 100%);
-  }
-
-  .dark .grid-bg {
-    background-image:
-      linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+  /* A measured value: the number in mono at full weight, its unit trailing
+     quietly. Mono here is carrying data, not costume. */
+  .measure {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
   }
 }
 
-/* Respect users who ask for less motion, which kills the marquee and reveal animations. */
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .marquee-track { animation: none !important; }
+/* The hero is the page's one authored entrance: text resolves from soft to
+   sharp rather than sliding. Everything else is already visible on arrival. */
+@keyframes resolve-in {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.resolve {
+  animation: resolve-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes marquee {
@@ -92,9 +142,15 @@
 }
 
 .marquee-track {
-  animation: marquee 38s linear infinite;
+  animation: marquee 46s linear infinite;
 }
 
 .marquee:hover .marquee-track {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none !important; }
+  .resolve { animation: none !important; }
 }
