@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Impeccable runtime state (config is tracked, caches are not)
+.impeccable/hook.cache.json
+.impeccable/live/inject-journal.json
