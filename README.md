@@ -106,3 +106,8 @@ Settings → Pages. Keep `base` as `/` when using a custom domain.
   in `localStorage`. A small inline script in `index.html` applies it before first
   paint so there's no white flash.
 - Animations respect `prefers-reduced-motion`.
+
+## Adding content
+
+- [docs/adding-projects.md](docs/adding-projects.md) — project cards and their images
+- [docs/adding-photos.md](docs/adding-photos.md) — the personal photo wall
