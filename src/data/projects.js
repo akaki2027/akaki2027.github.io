@@ -29,6 +29,20 @@
 
 export const projects = [
   {
+    // The one project without a public repo. PRODUCT.md records it as the
+    // single exception to the public-repo rule: it is the venture he is
+    // building, not something to browse.
+    slug: 'ark-integrity',
+    title: 'ARK Integrity Systems',
+    badge: 'In progress',
+    blurb:
+      'An embedded bridge that cryptographically signs CCTV footage at the moment it is captured, so a recording can later be proved unedited. Right now it is a working prototype: an off-the-shelf camera feeding custom hardware that hashes each frame and signs it with a key held in the device itself.',
+    image: 'ark-integrity.jpg',
+    tags: ['Embedded Systems', 'Security', 'AI / ML'],
+    tech: ['C++', 'Jetson Orin Nano', 'TPM 2.0', 'ECDSA', 'RTSP', 'TensorRT'],
+    featured: true,
+  },
+  {
     slug: 'personal-smart-locker',
     metric: { value: '2.33 mA', label: 'sleep current' },
     title: 'Personal Smart Locker',
