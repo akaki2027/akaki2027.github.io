@@ -46,6 +46,15 @@ export const projects = [
     featured: true,
   },
   {
+    slug: 'orchestra',
+    title: 'Orchestra',
+    badge: 'Work in progress',
+    blurb:
+      'A local-first agent orchestrator. A planning agent breaks a request into a task graph and hands the pieces to smaller agents that run at the same time, some on models on the laptop and some on hosted APIs in the same run. Those are different trust boundaries, so it treats them as such: sensitive values are stripped before anything reaches a hosted model, any agent can be pinned to never leave the machine, and every run ends with a receipt of what stayed local and what was sent.',
+    tags: ['AI / ML', 'Software'],
+    tech: ['Python', 'FastAPI', 'Ollama', 'Anthropic API', 'Vanilla JS'],
+  },
+  {
     slug: 'personal-smart-locker',
     metric: { value: '2.33 mA', label: 'sleep current' },
     title: 'Personal Smart Locker',
@@ -74,12 +83,12 @@ export const projects = [
   {
     slug: 'color-jump',
     title: 'Color Jump',
-    badge: 'Course project',
     blurb:
       "An FSM-driven arcade game on an MSP432 LaunchPad, where the player jumps along a scrolling floor and has to match its colour or fall through it. The interesting problem is redrawing: the OLED sits behind SPI, so repainting the whole frame makes the animation crawl. Instead each jump records the player's previous rectangle and only that region plus the new position gets redrawn, which keeps the motion smooth. A joystick-driven colour wheel swaps the player between four colours, and two difficulty levels change both the scoring rate and the floor's scroll speed.",
     image: 'color-jump.jpg',
     tags: ['Embedded Systems'],
     tech: ['C', 'MSP432', 'SPI', 'FSM', 'Joystick'],
+    repo: 'https://github.com/akaki2027/msp432-Color-Jump',
   },
   {
     slug: 'readability-analyzer',
