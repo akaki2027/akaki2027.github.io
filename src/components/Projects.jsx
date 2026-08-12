@@ -26,17 +26,33 @@ function Monogram({ title }) {
 }
 
 function ProjectCard({ project }) {
-  const { title, badge, blurb, image, metric, tech = [], repo, demo, demoLabel, featured } = project
+  const { title, badge, blurb, image, metric, tech = [], repo, demo, demoLabel, featured, portrait } =
+    project
+
+  // A tall photo cannot survive a wide banner crop, so a featured card with a
+  // portrait image splits instead: the photo keeps its own shape in one column
+  // and the text sits beside it. Everything is visible, nothing is cropped.
+  const split = featured && portrait
 
   return (
     <motion.article
       layout
       transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-      className={`group flex flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white transition-colors hover:border-neutral-400 dark:border-neutral-800 dark:bg-neutral-900/40 dark:hover:border-neutral-600 ${
+      className={`group overflow-hidden rounded-xl border border-neutral-200 bg-white transition-colors hover:border-neutral-400 dark:border-neutral-800 dark:bg-neutral-900/40 dark:hover:border-neutral-600 ${
         featured ? 'md:col-span-2' : ''
-      }`}
+      } ${split ? 'md:grid md:grid-cols-[minmax(0,0.62fr)_1fr] md:items-stretch' : 'flex flex-col'}`}
     >
-      <div className={`overflow-hidden ${featured ? 'aspect-[2.4/1]' : 'aspect-[16/10]'}`}>
+      <div
+        className={`overflow-hidden ${
+          split
+            ? // 9:16 matches the photo exactly, so the stacked mobile layout
+              // crops nothing either. On md+ the column takes the card's height.
+              'aspect-[9/16] md:aspect-auto md:h-full'
+            : featured
+              ? 'aspect-[2.4/1]'
+              : 'aspect-[16/10]'
+        }`}
+      >
         {image ? (
           <img
             src={`${import.meta.env.BASE_URL}projects/${image}`}
@@ -49,18 +65,19 @@ function ProjectCard({ project }) {
         )}
       </div>
 
-      {/* The measured value gets its own band on the scale. It is the most
-          persuasive thing on the card, so it is not buried in the prose. */}
-      {metric && (
-        <div className="flex items-baseline gap-2.5 border-b border-neutral-100 px-6 pt-5 pb-4 dark:border-neutral-800">
-          <span className="measure text-2xl text-accent">{metric.value}</span>
-          <span className="font-mono text-[11px] tracking-wide text-neutral-500 uppercase">
-            {metric.label}
-          </span>
-        </div>
-      )}
+      <div className={split ? 'flex flex-col' : 'contents'}>
+        {/* The measured value gets its own band on the scale. It is the most
+            persuasive thing on the card, so it is not buried in the prose. */}
+        {metric && (
+          <div className="flex items-baseline gap-2.5 border-b border-neutral-100 px-6 pt-5 pb-4 dark:border-neutral-800">
+            <span className="measure text-2xl text-accent">{metric.value}</span>
+            <span className="font-mono text-[11px] tracking-wide text-neutral-500 uppercase">
+              {metric.label}
+            </span>
+          </div>
+        )}
 
-      <div className="flex flex-1 flex-col p-6">
+        <div className="flex flex-1 flex-col justify-center p-6">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1.5">
           <h3 className="display text-2xl">{title}</h3>
           {badge && (
@@ -106,6 +123,7 @@ function ProjectCard({ project }) {
             )}
           </div>
         )}
+        </div>
       </div>
     </motion.article>
   )

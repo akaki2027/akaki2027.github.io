@@ -38,6 +38,9 @@ export const projects = [
     blurb:
       'An embedded bridge that cryptographically signs CCTV footage at the moment it is captured, so a recording can later be proved unedited. Right now it is a working prototype: an off-the-shelf camera feeding custom hardware that hashes each frame and signs it with a key held in the device itself.',
     image: 'ark-integrity.jpg',
+    // Tall photo: the featured card splits into image + text instead of
+    // cropping it into a banner.
+    portrait: true,
     tags: ['Embedded Systems', 'Security', 'AI / ML'],
     tech: ['C++', 'Jetson Orin Nano', 'TPM 2.0', 'ECDSA', 'RTSP', 'TensorRT'],
     featured: true,
