@@ -81,7 +81,10 @@ function ProjectCard({ project }) {
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1.5">
           <h3 className="display text-2xl">{title}</h3>
           {badge && (
-            <span className="font-mono text-[11px] tracking-wide text-neutral-400 uppercase">
+            // Live status, not decoration: the accent plus a filled dot reads as
+            // "still moving" rather than as another grey label.
+            <span className="inline-flex items-center gap-1.5 font-mono text-[11px] tracking-wide text-accent uppercase">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
               {badge}
             </span>
           )}
