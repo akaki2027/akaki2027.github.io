@@ -57,9 +57,8 @@ site is the hub; the repos and the résumé are where verification happens.
   building rather than a browsable project.
 - **Filenames must be lowercase with hyphens.** GitHub Pages is case-sensitive
   and macOS is not, so capitals and spaces work locally and 404 in production.
-- **Undecided:** custom domain (currently `<username>.github.io`); whether Color
-  Jump keeps its card, since its repo is a private course repo and therefore
-  fails the inclusion rule above.
+- **Undecided:** custom domain (currently `akaki2027.github.io`, which the
+  résumé now links to).
 
 ## Brand Commitments
 
@@ -84,10 +83,14 @@ Volunteered by Aditya and binding on future work:
 Real and verifiable:
 
 - Public repos: `akaki2027/Personal-Smart-Locker`,
-  `akaki2027/Pathogen-Classification`, `akaki2027/Readability-Analyzer`.
+  `akaki2027/Pathogen-Classification`, `akaki2027/Readability-Analyzer`,
+  `akaki2027/orchestra`, `akaki2027/msp432-Color-Jump`,
+  `akaki2027/msp432-Color-Mixer`, `akaki2027/msp432-Maze-Game`.
 - Measured results, from his own reports: locker at 2.33 mA sleep current and
   ~62,800 lock cycles per battery; pathogen classification at mean AUROC
-  0.949 / 0.865 / 0.727 across 13 leave-one-dataset-out cohorts.
+  0.949 / 0.865 / 0.727 across 13 leave-one-dataset-out cohorts; Orchestra's
+  11-task run at 43.3 s wall time against 78.2 s of summed node time; ARK's
+  YOLOv8n at 7.2 ms per frame through TensorRT on the Jetson Orin Nano.
 - YouTube demo videos for the locker.
 - Résumé at `public/AdityaKaki-Resume.pdf`.
 - Four project card images, all genuine: the locker's own block diagram, a

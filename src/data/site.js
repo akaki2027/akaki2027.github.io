@@ -37,7 +37,7 @@ export const links = {
 export const aboutParagraphs = [
   "I'm a computer engineering student at Virginia Tech, concentrating in machine learning and spending most of my time a layer or two below where people usually look: firmware, hardware key storage, inference on devices that have no business running a neural network.",
   "Right now I'm building ARK Integrity Systems, a platform that cryptographically signs CCTV footage the instant it's captured, so it can't be quietly edited later and still pass as real. It's a hardware problem, a cryptography problem, and a talking-to-attorneys problem all at once, which is roughly why it's interesting.",
-  "Before that I spent a summer at TITAN America turning a pile of Excel sheets and scanned engineering documents into digital infrastructure their corporate engineering team still runs on. Less glamorous, same lesson: most of the value is in the parts nobody wants to do carefully.",
+  "Before that I spent a summer at TITAN America turning a pile of Excel sheets and scanned engineering documents into a structured asset library, including the taxonomy and metadata schema their AI Planner and AI Librarian projects now query. Less glamorous, same lesson: most of the value is in the parts nobody wants to do carefully.",
 ]
 
 // Shown as big numbers in the About section.
@@ -64,8 +64,8 @@ export const categories = [
 
 // Grouped for the tech section. Add or remove freely.
 export const techStack = [
-  { group: 'Languages', items: ['Python', 'C', 'C++', 'Java', 'Verilog'] },
+  { group: 'Languages', items: ['Python', 'C', 'C++', 'Java', 'JavaScript', 'Verilog'] },
   { group: 'ML & Data', items: ['PyTorch', 'scikit-learn', 'XGBoost', 'pandas', 'NumPy', 'TensorRT', 'Tesseract OCR'] },
-  { group: 'Systems', items: ['Linux', 'Git', 'MATLAB', 'Quartus', 'Docker', 'CUDA'] },
+  { group: 'Systems', items: ['Linux', 'Git', 'FastAPI', 'MCP', 'Ollama', 'CUDA', 'MATLAB', 'Quartus'] },
   { group: 'Hardware', items: ['Jetson Orin Nano', 'TPM 2.0', 'Raspberry Pi CM4', 'Arduino', 'DE-10 Lite FPGA', 'PCB Prototyping', 'NFC/RFID'] },
 ]

@@ -57,11 +57,12 @@ export const projects = [
     title: 'Orchestra',
     badge: 'Work in progress',
     blurb:
-      'A local-first agent orchestrator, in active development. A planning agent turns a request into a task graph and fans the independent subtasks out to smaller agents that run at the same time, some on models on the laptop through Ollama and some on hosted APIs within the same run. Those are different trust boundaries, so it treats them as such: values are redacted before anything crosses to a hosted model, any agent can be pinned so its work never leaves the machine, and every run ends with a declaration of what stayed local and what went over the wire. Four runtime dependencies and no build step.',
+      'A self-hosted multi-agent orchestrator, open source and in active development. A planning agent turns a request into a DAG of subtasks and runs the independent branches in parallel, some on local models through Ollama and some on hosted APIs within the same run. Local inference is RAM-bound and slow, so each provider gets its own concurrency lane and a laptop model never holds up a cloud agent. Local and hosted are also different trust boundaries: every call passes one guarded provider registry that swaps PII for stable placeholders before it crosses to a hosted model, enforces local-only pinning at the API, and writes a per-run ledger of what was sent, redacted, or blocked.',
     image: 'orchestra.jpg',
-    metric: { value: '4', label: 'runtime dependencies' },
+    metric: { value: '43.3 s', label: 'wall time vs 78.2 s summed, 11 tasks' },
     tags: ['AI / ML', 'Software'],
-    tech: ['Python', 'FastAPI', 'Ollama', 'Anthropic API', 'Vanilla JS'],
+    tech: ['Python', 'FastAPI', 'Ollama', 'Anthropic API', 'MCP', 'SSE'],
+    repo: 'https://github.com/akaki2027/orchestra',
   },
   {
     slug: 'personal-smart-locker',
