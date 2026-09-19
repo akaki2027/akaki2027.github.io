@@ -7,7 +7,7 @@ import { projects } from '../data/projects'
 import { categories, links } from '../data/site'
 
 const ALL = 'All'
-const INITIAL_COUNT = 6
+const INITIAL_COUNT = 8
 
 /** Placeholder tile for projects that don't have an image yet. */
 function Monogram({ title }) {

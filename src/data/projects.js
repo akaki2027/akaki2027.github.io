@@ -65,6 +65,16 @@ export const projects = [
     repo: 'https://github.com/akaki2027/orchestra',
   },
   {
+    slug: 'shani',
+    title: 'Shani',
+    badge: 'Work in progress',
+    blurb:
+      'A futures trading journal that records why a trade was taken, not just what it made. It connects to TradingView Desktop over the Chrome DevTools Protocol, so every fill is saved with a screenshot of the chart that was actually on screen, and 90 seconds later it asks what the reasoning was while it is still fresh. An LLM distils each answer into a versioned setup card, and when a matching signal fires again it surfaces that setup with its own track record. It runs on a paper broker only: live adapters are never registered unless explicitly enabled, so the path to real money does not exist at runtime.',
+    tags: ['AI / ML', 'Software'],
+    tech: ['Python', 'FastAPI', 'Next.js', 'Chrome DevTools Protocol', 'Anthropic API', 'Ollama'],
+    repo: 'https://github.com/akaki2027/Shani-Futures-Trading-Harness',
+  },
+  {
     slug: 'personal-smart-locker',
     title: 'Personal Smart Locker',
     badge: 'Bare metal',
